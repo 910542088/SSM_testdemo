@@ -1,0 +1,33 @@
+springmvc:界面层，处理现实结构
+spring：业务层
+mybatis：持久层
+
+用户发起请求-->springmvc接收请求-->spring中的service对象-->mybatis处理数据
+
+两个容器的创建：
+1.springMVC的容器：管理controller对象；
+2.spring的容器：管理service、dao、工具类；
+
+步骤：
+1.加入依赖
+2.写web.xml文件：
+    1>注册DispatcherServlet：创建springmvc容器对象
+    2>注册spring的监听器：ContextLoaderListener用来创建spring容器对象
+    3>注册字符集过滤器
+3.创建相关包
+4.写配置文件：
+    1.springmvc配置文件:
+        组建扫描器
+        视图解析器
+        注解驱动
+    2.spring配置文件：
+        properties
+        DataSource
+    3.mybatis配置文件
+        <mappers>指定包名
+    4.数据库的属性配置文件
+        url
+        username
+        password
+
+5.Coding...注意版本之间的兼容问题！！！！！！！！！！！
