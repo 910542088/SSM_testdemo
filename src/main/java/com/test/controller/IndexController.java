@@ -87,8 +87,8 @@ public class IndexController {
 
     @RequestMapping("/limit.do")
     @ResponseBody
-    public Map<String, Object> two(@RequestParam(name = "pageNumber", defaultValue = "1") Integer pageNumber,
-                                   @RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize,
+    public Map<String, Object> two(@RequestParam(name = "pageNumber", defaultValue = "1" ,required = false) Integer pageNumber,
+                                   @RequestParam(name = "pageSize", defaultValue = "5",required = false) Integer pageSize,
                                    String name, Integer age) {
         int total = 0;
         List<Student> list = null;
@@ -99,9 +99,9 @@ public class IndexController {
         if ("".equals(name) && age == null) {
             total = service.showAll().size();
         }else {
-            total = service.one(name, age).size();
-//            传递null会造成空指针异常,只能用上面的sql了
-//            total = service.limit(null, null, name, age).size();
+//            total = service.one(name, age).size();
+//            传递null会造成空指针异常,上面的required设置为false即可
+            total = service.limit(null, null, name, age).size();
         }
         int totalPage = (int)Math.ceil(total / (double)pageSize);
         if (pageNumber > totalPage) {
