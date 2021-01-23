@@ -4,6 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.dao.StudentDao">
 
+    <!--一级缓存是默认开启的(作用域为sqlSession中),在没有执行dml语句之前的dql语句都会使用缓存(dml语句使一级缓存失效)-->
+    <!--使用二级缓存(作用域为namespace中)-->
+    <cache/>
+
     <update id="update">
         update student set name=#{name},age=#{age} where id= #{id}
     </update>

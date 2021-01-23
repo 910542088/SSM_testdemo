@@ -18,4 +18,5 @@ public interface StudentService {
     List<Student> one(String name, Integer age);
 
     List<Student> limit(Integer i, Integer pageSize,String name,Integer age);
+
 }

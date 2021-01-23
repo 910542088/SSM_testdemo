@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--springmvc配置文件-->
-    <!--视图对象扫描器-->
+    <!--视图对象扫描器,创建controller层对象-->
     <context:component-scan base-package="com.test.controller"/>
 
     <!--设置视图解析器-->
@@ -15,6 +15,6 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!--注解驱动(ajax->json,处理静态资源)-->
     <mvc:annotation-driven/>
+    <mvc:default-servlet-handler/>
 </beans>

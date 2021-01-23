@@ -3,17 +3,24 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <!--settings 为控制mybatis全局行为-->
-    <!--    <settings>-->
-    <!--设置mybatis输出日志-->
-    <!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
-    <!--    </settings>-->
+<!--    settings 为控制mybatis全局行为-->
+<!--    设置mybatis输出日志-->
+<!--    设置开启全局缓存-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
 
     <typeAliases>
         <package name="com.test.domain"/>
     </typeAliases>
 
     <mappers>
+        <!--1.通过class文件加载-->
+<!--        <mapper class="com.test.dao.StudentDao"/>-->
+        <!--2.通过xml文件加载-->
+<!--        <mapper resource="com/test/dao/StudentDao.xml"/>-->
+        <!--3.使用包扫描的方式,接口文件和xml文件必须同名且在同一目录下-->
         <package name="com.test.dao"/>
     </mappers>
 

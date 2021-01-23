@@ -6,11 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String basePath = request.getScheme()+"://"+request.getServerName() +":"+request.getServerPort()+request.getContextPath()+"/";
+%>
 <html>
 <head>
     <title>Title</title>
+    <base href="<%=basePath%>">
 </head>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 <style>
     #p {
         background-color: aquamarine;
@@ -46,7 +50,7 @@
                 if (confirm("确定要删除吗？")) {
                     $.ajax({
                         type: "post",
-                        url: "/delete.do",
+                        url: "delete.do",
                         data: {"data": data},
                         //不适用传统请求发送,后台接收不到!!!
                         traditional: true,
@@ -68,7 +72,7 @@
         $("#tbody").empty();
         $.ajax({
             type: "post",
-            url: "/limit.do",
+            url: "limit.do",
             data: {
                 "name": $("#name").val(),
                 "age": $("#age").val(),

@@ -40,7 +40,7 @@ public class IndexController {
         return map;
     }
 
-    @RequestMapping("/delete.do")
+    @RequestMapping(value = "/delete.do")
     @ResponseBody
 //    public String delete(@RequestParam(value = "data") String[] data){
     //当前台发送的参数名称与接收参数名称相同时,可以省略 @RequestParam(value = "data")

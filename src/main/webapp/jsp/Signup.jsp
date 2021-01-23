@@ -13,7 +13,7 @@
 <body>
     <div  style="height: 200px;width:300px;background-color: aqua;text-align: center;border: 2px solid #f00
                 ;margin: auto">
-        <form action="/add.do" method="post">
+        <form action="${pageContext.request.contextPath}/add.do" method="post">
             <br/><br/>
             name:<input type="text" name="name"><br/><br/>
             age:<input type="text" name="age"><br/><br/>
