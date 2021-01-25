@@ -99,9 +99,7 @@ public class IndexController {
         if ("".equals(name) && age == null) {
             total = service.showAll().size();
         }else {
-//            total = service.one(name, age).size();
-//            传递null会造成空指针异常,上面的required设置为false即可,但是必须用包装类接受,防止空指针异常报错终止程序
-            total = service.limit(null, null, name, age).size();
+            total = service.one(name, age).size();
         }
         int totalPage = (int)Math.ceil(total / (double)pageSize);
         if (pageNumber > totalPage) {

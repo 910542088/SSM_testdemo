@@ -2,6 +2,7 @@ package com.test.dao;
 
 import com.test.domain.Student;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.lang.Nullable;
 
 import java.util.List;
 
@@ -19,8 +20,8 @@ public interface StudentDao {
 
     List<Student> one(@Param("name")String name,@Param("age") Integer age);
 
-    List<Student> limit(@Param("i") int i,
-                        @Param("pageSize")Integer pageSize,
-                        @Param("name")String name,
-                        @Param("age")Integer age);
+    List<Student> limit(@Param("i")  Integer i,
+                        @Param("pageSize")  Integer pageSize,
+                        @Param("name") @Nullable String name,
+                        @Param("age") @Nullable Integer age);
 }
